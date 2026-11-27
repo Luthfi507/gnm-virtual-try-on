@@ -342,9 +342,16 @@ export class GnmModel {
 }
 
 export async function loadGnmModel(baseUrl: string): Promise<GnmModel> {
+  const base = baseUrl.replace(/\/+$/, '');
   const [manifest, buffer] = await Promise.all([
-    fetch(`${baseUrl}/gnm_head.json`).then((r) => r.json() as Promise<Manifest>),
-    fetch(`${baseUrl}/gnm_head.bin`).then((r) => r.arrayBuffer()),
+    fetch(`${base}/gnm_head.json`).then((r) => {
+      if (!r.ok) throw new Error(`Failed to fetch gnm_head.json (${r.status})`);
+      return r.json() as Promise<Manifest>;
+    }),
+    fetch(`${base}/gnm_head.bin`).then((r) => {
+      if (!r.ok) throw new Error(`Failed to fetch gnm_head.bin (${r.status})`);
+      return r.arrayBuffer();
+    }),
   ]);
   return new GnmModel(manifest, buffer);
 }

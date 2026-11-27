@@ -5,8 +5,9 @@
   "type": "module",
   "description": "Browser-based GNM Head 3D Puppet & AR Virtual Try-On with custom OBJ accessories and character customizer.",
   "scripts": {
+    "predev": "node tools/sync_web_assets.mjs",
     "dev": "vite",
-    "build": "tsc --noEmit && vite build",
+    "build": "node tools/sync_web_assets.mjs && tsc --noEmit && vite build",
     "preview": "vite preview",
     "sync-assets": "node tools/sync_web_assets.mjs"
   },

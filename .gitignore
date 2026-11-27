@@ -7,11 +7,9 @@ npm-debug.log*
 yarn-debug.log*
 pnpm-debug.log*
 
-# Generated / synced browser assets (rebuilt via export_assets.py & npm run sync-assets)
+# Generated / synced MediaPipe runtime assets (auto-copied by `npm run sync-assets` / `npm run build`)
 web/public/mediapipe/
 web/public/assets/face_landmarker.task
-web/public/assets/gnm_head.bin
-web/public/assets/gnm_head.json
 
 # Local external GNM checkout (installed via google-gnm package)
 /gnm/

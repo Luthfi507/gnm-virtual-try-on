@@ -124,8 +124,9 @@ async function main(): Promise<void> {
   const pipStatus = document.querySelector<HTMLElement>('#pipStatus')!;
 
   statusEl.textContent = 'Loading GNM assets (18 MB)...';
+  const gnmAssetsBase = import.meta.env.VITE_GNM_ASSETS_URL?.trim() || 'assets';
   const [model, identityPresets] = await Promise.all([
-    loadGnmModel('assets'),
+    loadGnmModel(gnmAssetsBase),
     loadIdentityPresets(),
   ]);
 

@@ -94,7 +94,17 @@ To build for production:
 npm run build
 ```
 
-### 3. Run the Python Desktop Version
+### 3. Deploy to Vercel (Web App)
+
+A root [`vercel.json`](vercel.json) is included so you can deploy directly from GitHub with zero extra configuration:
+
+1. Push this repository to GitHub (includes `web/public/assets/gnm_head.bin` & `gnm_head.json`).
+2. Import the repository in **Vercel** and leave **Root Directory** as `.` (repo root).
+3. Vercel will automatically run `npm --prefix web install`, `npm --prefix web run build` (which syncs MediaPipe WASM and `face_landmarker.task`, typechecks, and bundles with Vite), and serve `web/dist`.
+
+*(Optional)* If you prefer hosting `gnm_head.bin` and `gnm_head.json` on external object storage (e.g., Cloudflare R2 / Vercel Blob with CORS enabled), set the `VITE_GNM_ASSETS_URL` environment variable in Vercel to that base URL.
+
+### 4. Run the Python Desktop Version
 
 ```bash
 conda activate gnm
