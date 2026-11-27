@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GNM Virtual Try-On &amp; 3D Character Studio</title>
+    <link rel="stylesheet" href="/src/styles.css" />
+  </head>
+  <body>
+    <div id="app">
+      <main id="stage" aria-label="3D and AR Viewport">
+        <canvas id="view"></canvas>
+
+        <header id="topbar">
+          <div class="toolbar-group" role="group" aria-label="Render mode">
+            <button id="modeStudio" type="button" class="pill active">3D Puppet Studio</button>
+            <button id="modeAr" type="button" class="pill">AR Webcam Try-On</button>
+          </div>
+
+          <div class="toolbar-group" role="group" aria-label="Camera and tracking controls">
+            <button id="btnCamera" type="button" class="pill secondary">Start Camera</button>
+            <button id="btnFit" type="button" class="pill secondary">Fit Identity</button>
+            <button id="btnDrive" type="button" class="pill secondary">Drive Face</button>
+            <button id="btnMirror" type="button" class="pill secondary active">Mirror</button>
+          </div>
+        </header>
+
+        <div id="pipWrap">
+          <canvas id="pip" aria-label="Webcam landmark preview"></canvas>
+          <div id="pipStatus"></div>
+        </div>
+
+        <footer id="hud" aria-live="polite">
+          <strong>GNM Virtual Try-On</strong>
+          <div id="status">Loading GNM model...</div>
+          <div id="cost"></div>
+          <div id="verify"></div>
+        </footer>
+      </main>
+
+      <aside id="panel" aria-label="Studio controls">
+        <nav id="tabs" role="tablist" aria-label="Control sections">
+          <button
+            id="tab-btn-objects"
+            type="button"
+            class="tab-btn active"
+            role="tab"
+            aria-selected="true"
+            aria-controls="tab-objects"
+            data-tab="objects"
+          >
+            .OBJ Try-On
+          </button>
+          <button
+            id="tab-btn-character"
+            type="button"
+            class="tab-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-character"
+            data-tab="character"
+          >
+            Character
+          </button>
+          <button
+            id="tab-btn-pose"
+            type="button"
+            class="tab-btn"
+            role="tab"
+            aria-selected="false"
+            aria-controls="tab-pose"
+            data-tab="pose"
+          >
+            Face &amp; Pose
+          </button>
+        </nav>
+
+        <div id="tabBody">
+          <section
+            id="tab-objects"
+            class="tab-pane active"
+            role="tabpanel"
+            aria-labelledby="tab-btn-objects"
+          ></section>
+          <section
+            id="tab-character"
+            class="tab-pane"
+            role="tabpanel"
+            aria-labelledby="tab-btn-character"
+          ></section>
+          <section
+            id="tab-pose"
+            class="tab-pane"
+            role="tabpanel"
+            aria-labelledby="tab-btn-pose"
+          ></section>
+        </div>
+      </aside>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

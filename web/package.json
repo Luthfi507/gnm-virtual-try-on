@@ -1,0 +1,23 @@
+{
+  "name": "gnm-vto-web",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Browser-based GNM Head 3D Puppet & AR Virtual Try-On with custom OBJ accessories and character customizer.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "sync-assets": "node tools/sync_web_assets.mjs"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^0.10.22-rc.20250304",
+    "three": "^0.175.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.0",
+    "@types/three": "^0.175.0",
+    "typescript": "^5.8.3",
+    "vite": "^6.3.5"
+  }
+}
