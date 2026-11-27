@@ -1,0 +1,17 @@
+# Exclude Python desktop app, local dependencies, and build caches from Vercel upload
+/main.py
+/config.py
+/requirements.txt
+/core/
+/viz/
+/gnm/
+/web/tools/export_assets.py
+/web/node_modules/
+/web/dist/
+/web/public/mediapipe/
+/web/public/assets/face_landmarker.task
+__pycache__/
+*.pyc
+.git/
+.vscode/
+.vercel/
